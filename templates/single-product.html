@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single product page</title>
+</head>
+<body>
+<div style="text-align: center">
+    <h3>Название товара: {{ product.product_title }} </h3>
+    <img src="{{ product.product_image.url }}" width="400px" height="400px" alt="">
+    <h5>Цена товара: {{ product.product_price }}$</h5>
+    <p>Описание товара: {{ product.product_description }}</p>
+    <h3>У нас осталось : {{ product.product_amount }} штук</h3>
+</div>
+</body>
+</html>

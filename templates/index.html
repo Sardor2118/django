@@ -88,6 +88,12 @@
             </div>
 
             <div class="col-md-9">
+                <form action="search" style="text-align: right; margin-bottom: 20px;" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="search_product">
+                    <button>Поиск</button>
+
+                </form>
 
                 <div class="row carousel-holder">
 
@@ -118,17 +124,24 @@
 
                  </div><!--end of carosouel holder div-->
 
-<!--ECOMMERCE ITEMS - POPULATE WITH JAVASCRIPT ONLY-->                  
-{% for product in products %}
-<div class="card" style="width: 18rem;">
-<img src="{{ product.product_image.url }}" class="card-img-top" alt="...">
-<div class="card-body">
-<h5 class="card-title">{{ product.product_title }}</h5>
-<p class="card-text">{{ product.product_description }}</p>
-<a href="#" class="btn btn-primary">Go somewhere</a>
-</div>
-</div>
-{% endfor %}
+<!--ECOMMERCE ITEMS - POPULATE WITH JAVASCRIPT ONLY-->         
+<div class="container">
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+            <img src="{{ product.product_image.url }}" style="width: 200px;height: 200px;" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{ product.product_title }}</h5>
+            <p class="card-text">{{ product.product_description }}</p>
+            <a href="/product/{{ product.pk }}" class="btn btn-primary">See more</a>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>         
+
      
 
 
